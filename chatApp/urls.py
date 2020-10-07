@@ -14,13 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from . import views
+from chat import views  
 
 urlpatterns = [
         #URL from: "/api/messages/1/2"
         path('api/messages/<int:sender>/<int:receiver>', views.message_list, name='message-detail'),  #For GET request.
         #URL from: "/api/messages/"
-        path('api/messages/', views.messages_list, name='message-list'),  #For POST
+        path('api/messages/', views.message_list, name='message-list'),  #For POST
         #URL from "/api/users/1"
         path('api/users/<int:pk>', views.user_list, name='user-detail'),  #GET request for user with id
         path('api/users/', views.user_list, name='user-list'),            #POST for new user and GET for all users list. 
